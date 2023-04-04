@@ -62,7 +62,17 @@ class LinkedList():
 
         curr.next = curr.next.next
         self.count -= 1
-                    
+
+    def pop_stack(self):
+        curr = self.head.next
+        
+        for i in range(self.count-2):
+            curr = curr.next         
+        
+        self.tail = curr
+        curr.next = None
+        self.count -= 1
+        
 
     def remove(self, x):
         pass
@@ -189,7 +199,6 @@ class LinkedList():
 
     def printList(self):
         curr = self.head.next #dummy 제외
-
         while curr:
             print(curr.item)
             curr = curr.next
@@ -198,21 +207,21 @@ class LinkedList():
    
    
       
+if __name__ == "__main__":
 
-
-list = LinkedList()
-list.append(30)
-list.insert(0, 20)
-a = LinkedList()
-a.append(4)
-a.append(3)
-a.append(3)
-a.append(2)
-a.append(1)
-list.extend(a)
-list.reverse()
-list.pop(0)
-list.sort()
-print('count(3):', list.list_count(3))
-print("get(2):", list.get(2))
-list.printList()
+    list = LinkedList()
+    list.append(30)
+    list.insert(0, 20)
+    a = LinkedList()
+    a.append(4)
+    a.append(3)
+    a.append(3)
+    a.append(2)
+    a.append(1)
+    list.extend(a)
+    list.reverse()
+    list.pop(0)
+    list.sort()
+    print('count(3):', list.list_count(3))
+    print("get(2):", list.get(2))
+    list.printList()
